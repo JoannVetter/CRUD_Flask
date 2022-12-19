@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="my-4">Flask CRUD - Joann Vetter</h1>
+  {% if files|length < 1 %}
+  <p>There is no files uploaded for now.</p>
+  {% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Files</th>
+        <th>Added</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for current_file in files %}
+      <tr>
+        <td><a href="/update/{{current_file.id}}">{{ current_file.name }}</a></td>
+        <td>{{ current_file.created_at.date() }}</td>
+        {% if current_file.name.endswith('.jpg') or current_file.name.endswith('.png') or current_file.name.endswith('.jpeg') or current_file.name.endswith('.gif')%}
+        <td><img class="thumbnail" src='/uploads/{{current_file.name}}'></td>
+        {%else%}
+        <td><div class="white-box"></div></td>
+        {%endif %}
+        <td class="text-right"><a id='blue_button' class="btn btn-danger btn-sm" href="/delete/{{current_file.id}}" role="button">Delete</a></td>
+        <td class="text-right"><a id='blue_button' class="btn btn-danger btn-sm" href="/uploads/{{current_file.name}}" role="button">Read</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% include 'snippets/form.html' %}
+</div>
+
+{% endblock content %}

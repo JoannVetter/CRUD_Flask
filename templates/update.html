@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="my-4">Update Data - Replace a file</h1>
+  <div class="col-sm-2 my-1">
+    <form method=post action="/update/{{ current_file.id }}" enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Update name=updating>
+    </form>
+  </div>
+</div>
+{% endblock content %}

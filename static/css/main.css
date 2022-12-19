@@ -1,0 +1,29 @@
+body {
+  background: rgb(255, 255, 255);
+}
+
+img.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 75px;
+}
+
+img.logo {
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px;
+}
+
+div.white-box {
+
+  background-color: #fff;
+  padding: 5px;
+  width: 75px;
+
+}
+
+#blue_button {
+  background-color: rgb(46, 46, 168);
+  border:rgb(46, 46, 168)
+}
